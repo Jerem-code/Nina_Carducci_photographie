@@ -125,6 +125,7 @@ body {
   height: 100%;
   object-fit: cover;
   padding: 0.5em;
+  cursor: pointer; /* Afficher le pointeur au survol des images */
 }
 .mg-prev,
 .mg-next {
