@@ -67,8 +67,11 @@ body {
   z-index: 0;
 }
 
-.picture img {
+.picture img,
+.gallery-item {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 #about-me {
   flex: 2;
@@ -89,9 +92,8 @@ body {
   font-size: 14px;
 }
 
-#gallery {
-  /*	min-height: 100vh; */
-}
+/* #Gallery */
+
 .title {
   text-align: center;
   padding-block: 2em;
@@ -101,13 +103,14 @@ body {
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #beb45a;
+  color: #ffffff;
+  background-color: #901c1c;
   border-radius: 0;
 }
 .nav-pills .nav-link {
-  color: #000;
-  cursor: pointer; /* Affiche le pointeur au survol */
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
 }
 .item-column {
   position: relative;
@@ -262,21 +265,30 @@ input[type="submit"] {
 }
 
 @media all and (max-width: 1000px) {
-  #about {
+  #about,
+  #contact .container,
+  #services .container {
     flex-direction: column;
   }
-  .picture {
-    width: 50%;
-  }
-  .picture.left::before {
+
+  .picture.left::before,
+  .picture.right::before {
     width: 100%;
     height: 30%;
     position: absolute;
-    bottom: auto;
-    top: 0;
-    left: 0;
     z-index: -1;
   }
+
+  .picture.left::before {
+    top: 0;
+    left: 0;
+  }
+
+  .picture.right::before {
+    bottom: 0;
+    right: 0;
+  }
+
   .about-me__title {
     text-align: center;
     margin-top: 1em;
@@ -355,4 +367,36 @@ input[type="submit"] {
   .picture {
     width: 80%;
   }
+}
+
+/* Amélioration du contraste des boutons du carousel */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2rem;
+  height: 2rem;
 }
